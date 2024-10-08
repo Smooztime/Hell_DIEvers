@@ -9,7 +9,7 @@ using State = Code.Scripts.StateMachine.State;
 namespace Code.Scripts.Player
 {
     public enum PlayerStates{Idle, Run, Jumping, InAir}
-
+  
     public class PlayerInfo
     {
         public bool IsGrounded { get; set; }
@@ -47,6 +47,9 @@ namespace Code.Scripts.Player
         private GroundCheck _groundCheck;
 
         #endregion
+
+
+        public bool movingRight = false;
 
         public override void ChangeState(State newState)
         {
@@ -100,11 +103,13 @@ namespace Code.Scripts.Player
         {
             
             Data.MovementDirection = movement.x;
+            if (movement.x > 0) movingRight = true;
+            if (movement.x < 0) movingRight = false;
         }
 
         public void HandleJump()
         {
-            ((PlayerBaseState)_currentState).HandleJump();
+          //  ((PlayerBaseState)_currentState).HandleJump();
         }
 
         public void CancelJump()

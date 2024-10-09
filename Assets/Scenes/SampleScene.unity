@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultSpawn: {fileID: 718725988}
-  _playerPrefab: {fileID: 4881846652811120294, guid: c0a80dbeb2bec5e408e619f2c993083a, type: 3}
+  _playerPrefab: {fileID: 485155121340783826, guid: 802392c0f9b982845861f3931e335ef9, type: 3}
 --- !u!1 &1561038938
 GameObject:
   m_ObjectHideFlags: 3

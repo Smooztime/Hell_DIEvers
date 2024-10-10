@@ -13,8 +13,8 @@ namespace Code.Scripts.Player
         {
             _player.Data.IsJumping = false;
             _player.PlayerAnim.PlayAnimation(PlayerAnimationConstants.IDLE);
-            if(_player.Data.JumpBuffered)
-                base.HandleJump();
+            /*if(_player.Data.JumpBuffered)
+                base.HandleJump();*/
             _player.EventData.HandlePlayerIdles(_player);
         }
         public override void Update()
@@ -22,19 +22,19 @@ namespace Code.Scripts.Player
             base.Update();
         }
 
-        public override void HandleJump()
+        /*public override void HandleJump()
         {
             base.HandleJump();
-        }
+        }*/
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (!_player.IsGrounded)
+           /* if (!_player.IsGrounded)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;
-            }
+            }*/
             if (MathF.Abs(_player.Data.MovementDirection) > 0)
             {
                 _player.ChangeState(PlayerStates.Run);

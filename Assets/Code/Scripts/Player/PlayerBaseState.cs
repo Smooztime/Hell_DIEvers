@@ -16,13 +16,13 @@ namespace Code.Scripts.Player
         }
         
 
-        public virtual void HandleJump()
+        /*public virtual void HandleJump()
         {
             if (!_player.Data.IsJumping)
             {
                 _player.ChangeState(PlayerStates.Jumping);
             }
-        }
+        }*/
         
         public virtual void CancelJump()
         {

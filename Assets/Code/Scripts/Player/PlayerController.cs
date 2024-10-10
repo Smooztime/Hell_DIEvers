@@ -8,7 +8,7 @@ using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player
 {
-    public enum PlayerStates{Idle, Run, Jumping, InAir}
+    public enum PlayerStates{Idle, Run/*, Jumping, InAir*/}
   
     public class PlayerInfo
     {
@@ -66,12 +66,12 @@ namespace Code.Scripts.Player
                 case PlayerStates.Run:
                     ChangeState(_runState);
                     break;
-                case PlayerStates.Jumping:
+                /*case PlayerStates.Jumping:
                     ChangeState(_jumpingState);
                     break;
                 case PlayerStates.InAir:
                     ChangeState(_inAirState);
-                    break;
+                    break;*/
             }
         }
 
@@ -82,7 +82,7 @@ namespace Code.Scripts.Player
             _groundCheck = GetComponent<GroundCheck>();
             EventData.HandlePlayerSpawn(this);
             StateSetup();
-            ChangeState(PlayerStates.InAir);
+            ChangeState(PlayerStates.Idle);
             _groundCheck.GroundChanged += (val) =>
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
@@ -115,7 +115,7 @@ namespace Code.Scripts.Player
         public void CancelJump()
         {
             
-             ((PlayerBaseState)_currentState).HandleJumpExit();
+           //  ((PlayerBaseState)_currentState).HandleJumpExit();
         }
 
         public void HandleRun(bool isRunning)

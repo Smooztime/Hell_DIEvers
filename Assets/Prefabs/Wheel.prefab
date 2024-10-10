@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5410062781503415691}
   - component: {fileID: 240701415871956033}
   - component: {fileID: 9060229313801468495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &9060229313801468495
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -242,9 +242,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -327,9 +327,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -412,9 +412,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -497,9 +497,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 6753007132950431057}
   - component: {fileID: 872582220772587664}
   - component: {fileID: 8912383705468386795}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &8912383705468386795
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 7809909942712808209}
   - component: {fileID: 9105077386650804452}
   m_Layer: 0
-  m_Name: WheelObj
+  m_Name: WheelRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 7088204382395015561}
   - component: {fileID: 3820763744934131821}
   - component: {fileID: 7769034445205658288}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,7 +872,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &7769034445205658288
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1002,9 +1002,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 4146618779940858120}
   - component: {fileID: 6541090216356527128}
   - component: {fileID: 2424914234690893171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &2424914234690893171
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1251,9 +1251,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 5145202453925395033}
   - component: {fileID: 6362872844360329459}
   - component: {fileID: 3168900094796522700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1370,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &3168900094796522700
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 3462376393030377296}
   - component: {fileID: 4072305975451988560}
   - component: {fileID: 4512565205934761904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,7 +1534,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &4512565205934761904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 3739074383981415070}
   - component: {fileID: 4851436091832882571}
   - component: {fileID: 4979061159048372985}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1698,7 +1698,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &4979061159048372985
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1828,9 +1828,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1913,9 +1913,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
-    m_Angle: 90
+    m_DampingRatio: 0
+    m_Frequency: 100
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 4770332175946730841}
   - component: {fileID: 4588003278928793248}
   - component: {fileID: 6517619904476849111}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blade (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2072,7 +2072,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &6517619904476849111
 PolygonCollider2D:
   m_ObjectHideFlags: 0

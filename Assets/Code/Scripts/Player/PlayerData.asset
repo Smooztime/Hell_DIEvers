@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb2fc11408144928656dd86698ffcc1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 5
+  <MovementSpeed>k__BackingField: 8.4
   <MaxAcceleration>k__BackingField: 10
   <MaxDeceleration>k__BackingField: 20
   <MaxTurnSpeed>k__BackingField: 20
@@ -27,6 +27,6 @@ MonoBehaviour:
   <CoyoteTime>k__BackingField: 0.2
   <PlayerDeathDelay>k__BackingField: 0
   <TerminalVelocity>k__BackingField: 20
-  <AirMaxAcceleration>k__BackingField: 5
-  <AirMaxDeceleration>k__BackingField: 5
-  <AirMaxTurnSpeed>k__BackingField: 10
+  <AirMaxAcceleration>k__BackingField: 7.01
+  <AirMaxDeceleration>k__BackingField: 20.8
+  <AirMaxTurnSpeed>k__BackingField: 27.9

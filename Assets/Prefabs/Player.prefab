@@ -280,7 +280,7 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4881846652811120294}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
@@ -289,7 +289,7 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 3.5639682, y: 5.651345}
+  m_ConnectedAnchor: {x: 3.663488, y: 9.082276}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_MaxDistanceOnly: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   currentHook: {fileID: 0}
   heightOfGrappleFromPlayer: 0.5
   LetGoForce: 600
-  horizontalLetGoForce: 200
+  horizontalLetGoForce: 0
   PullInSpeed: 0.2
 --- !u!120 &3505868598856399633
 LineRenderer:
@@ -323,7 +323,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4881846652811120294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -358,7 +358,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 3.5639682, y: 5.651345, z: 0}
+  - {x: 3.663488, y: 9.082276, z: 0}
   - {x: 0, y: 0.5, z: 0}
   m_Parameters:
     serializedVersion: 3

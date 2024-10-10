@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AttachToGround : MonoBehaviour
@@ -9,6 +10,8 @@ public class AttachToGround : MonoBehaviour
     public GameObject playerObject;
     [SerializeField] float grappleMoveSpeed;
     bool doMoveHook = false;
+    bool attachedToMovingObject = false;
+    GameObject movingObject;
     Vector2 grappleTowards;
     // Start is called before the first frame update
     void Start()
@@ -20,12 +23,13 @@ public class AttachToGround : MonoBehaviour
         grappleRigidbody = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //if (doMoveHook)
-        //{
-        //    this.transform.position = Vector2.MoveTowards(this.transform.position, grappleTowards, grappleMoveSpeed);
-        //}
+        if (attachedToMovingObject)
+        {
+            transform.position = movingObject.transform.position;
+            grappleScript.AttachedHookToMovingObject(transform.position);
+        }
     }
     public void ShootHook(Vector2 mousePos)
     {
@@ -41,6 +45,14 @@ public class AttachToGround : MonoBehaviour
             grappleRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             doMoveHook = false;
             grappleScript.AttachedHook((Vector2)transform.position);
+        }
+        if(collision.gameObject.layer == 6)
+        {
+            attachedToMovingObject = true;
+            movingObject = collision.gameObject;
+            grappleScript.AttachedHook((Vector2)transform.position);
+            grappleScript.distanceForMovingObj = ((Vector2)transform.position - (Vector2)playerObject.transform.position).magnitude;
+            Debug.Log(grappleScript.distanceForMovingObj);
         }
     }
 }

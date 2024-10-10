@@ -15,6 +15,8 @@ public class Grapple : MonoBehaviour
     [SerializeField] float LetGoForce;
     [SerializeField] float horizontalLetGoForce;
     [SerializeField] float PullInSpeed;
+    [SerializeField] Transform hookOrigin;
+    public float distanceForMovingObj;
     bool canJump = false;
     // Start is called before the first frame update
     void Start()
@@ -39,11 +41,17 @@ public class Grapple : MonoBehaviour
         {
          PullInToHook();
         }
-        grappleLine.SetPosition(1, new Vector2(playerTransform.position.x,playerTransform.position.y + heightOfGrappleFromPlayer));
+        if(distanceJoint.distance >= 10)
+        {
+            LetGoOfHook();
+            distanceJoint.distance = 0;
+        }
+        grappleLine.SetPosition(1, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer));
     }
     void PullInToHook()
     {
         distanceJoint.distance -= PullInSpeed;
+        distanceForMovingObj -= PullInSpeed;
     }
     void ShootHook()
     {
@@ -63,6 +71,12 @@ public class Grapple : MonoBehaviour
         distanceJoint.connectedAnchor = grapplePos;
         distanceJoint.enabled = true;
         grappleLine.enabled = true;
+    }
+    public void AttachedHookToMovingObject(Vector2 grapplePos)
+    {
+        grappleLine.SetPosition(0, grapplePos);
+        distanceJoint.connectedAnchor = grapplePos;
+        distanceJoint.distance = distanceForMovingObj;
     }
     public void LetGoOfHook()
     {

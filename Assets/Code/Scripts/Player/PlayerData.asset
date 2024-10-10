@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   <MovementSpeed>k__BackingField: 8.4
-  <MaxAcceleration>k__BackingField: 10
+  <MaxAcceleration>k__BackingField: 6.11
   <MaxDeceleration>k__BackingField: 20
-  <MaxTurnSpeed>k__BackingField: 20
+  <MaxTurnSpeed>k__BackingField: 7.9
   <JumpHeight>k__BackingField: 3
   <TimeToApex>k__BackingField: 0.5
   <UpMovementMultiplier>k__BackingField: 1
-  <DownMovementMultiplier>k__BackingField: 5
+  <DownMovementMultiplier>k__BackingField: 4.98
   <GravityJumpCutOff>k__BackingField: 5
-  <DefaultGravityScale>k__BackingField: 1
+  <DefaultGravityScale>k__BackingField: 2
   <VariableJumpHeight>k__BackingField: 1
   <JumpBufferTime>k__BackingField: 0.3
   <CoyoteTime>k__BackingField: 0.2
   <PlayerDeathDelay>k__BackingField: 0
-  <TerminalVelocity>k__BackingField: 20
-  <AirMaxAcceleration>k__BackingField: 7.01
-  <AirMaxDeceleration>k__BackingField: 20.8
-  <AirMaxTurnSpeed>k__BackingField: 27.9
+  <TerminalVelocity>k__BackingField: 20.8
+  <AirMaxAcceleration>k__BackingField: 3.1
+  <AirMaxDeceleration>k__BackingField: 31.5
+  <AirMaxTurnSpeed>k__BackingField: 24.4

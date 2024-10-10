@@ -12,7 +12,7 @@ namespace Code.Scripts.Player
 
         public override void Enter()
         {
-            _player.PlayerAnim.PlayAnimation(PlayerAnimationConstants.AIR);
+           // _player.PlayerAnim.PlayAnimation(PlayerAnimationConstants.AIR);
             _player.EventData.HandlePlayerInAir(_player);
         }
 

@@ -20,14 +20,14 @@ namespace Code.Scripts.Player
         {
         }
 
-        public override void HandleJump()
+        /*public override void HandleJump()
         {
             if ((Time.time - _player.Data.TimeEnteredAir) < _player.Data.CoyoteTime && !_player.Data.IsJumping)
             {
                 Debug.Log("Coyote jump kicked in");
                 base.HandleJump();
             }
-        }
+        }*/
 
         public override void HandleJumpExit()
         {

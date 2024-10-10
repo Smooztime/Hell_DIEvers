@@ -28,17 +28,17 @@ namespace Code.Scripts.Player
             
         }
 
-        public override void HandleJump()
+        /*public override void HandleJump()
         {
 
-        }
+        }*/
         
-        public override void HandleJumpExit()
+        /*public override void HandleJumpExit()
         {
             if(_player.Data.VariableJumpHeight) _player.ChangeState(PlayerStates.InAir);
-        }
+        }*/
 
-        protected override void CalculateGravity()
+        /*protected override void CalculateGravity()
         {
             _player.Data.GravityMultiplier = _player.Data.UpMovementMultiplier;
 
@@ -46,7 +46,7 @@ namespace Code.Scripts.Player
             {
                 _player.ChangeState(PlayerStates.InAir);
             }
-        }
+        }*/
         
     
         public override void SetXVelocity()

@@ -352,9 +352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  grappleLine: {fileID: 3505868598856399633, guid: c0a80dbeb2bec5e408e619f2c993083a, type: 3}
-  distanceJoint: {fileID: 7633204188812907775, guid: c0a80dbeb2bec5e408e619f2c993083a, type: 3}
-  playerTransform: {fileID: 5395238903806043078, guid: c0a80dbeb2bec5e408e619f2c993083a, type: 3}
+  grappleLine: {fileID: -3134082091113119327}
+  distanceJoint: {fileID: 8364008118274510347}
+  playerTransform: {fileID: 7685197637175915449}
   grapplePrefab: {fileID: 3462705656395206384, guid: 934aeda521174e147aa11b08b0209f7e, type: 3}
   currentHook: {fileID: 0}
   heightOfGrappleFromPlayer: 0.5

@@ -30,11 +30,11 @@ namespace Code.Scripts.Player
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-           /* if (!_player.IsGrounded)
+            if (!_player.IsGrounded)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;
-            }*/
+            }
             if (MathF.Abs(_player.Data.MovementDirection) > 0)
             {
                 _player.ChangeState(PlayerStates.Run);

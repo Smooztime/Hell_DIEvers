@@ -44,5 +44,13 @@ namespace Code.Scripts.Player
                 return;
             IsGrounded = Physics2D.Raycast(transform.position + _colliderOffset, Vector2.down, _groundCheckDistance, _groundLayer) || Physics2D.Raycast(transform.position - _colliderOffset, Vector2.down, _groundCheckDistance, _groundLayer);
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position + _colliderOffset, 0.1f);
+        }
     }
+
+
 }

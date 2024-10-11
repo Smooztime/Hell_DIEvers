@@ -1,15 +1,19 @@
+using Code.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WheelRotate : MonoBehaviour
 {
-    [SerializeField] private GameObject wheel;
+    [SerializeField] private bool isTrap;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private bool reverse;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(isTrap);
     }
 
     // Update is called once per frame
@@ -20,6 +24,34 @@ public class WheelRotate : MonoBehaviour
 
     private void RotateWheel()
     {
-        wheel.transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
+        var sprite = GetComponent<SpriteRenderer>();
+        if (!reverse)
+        {
+            sprite.flipX = false;
+            transform.Rotate(0, 0, 1 * rotateSpeed * Time.deltaTime);
+        }
+        else if (isTrap && reverse)
+        {
+            sprite.flipX = true;
+            transform.Rotate(0, 0, -1 * rotateSpeed * Time.deltaTime);
+        }
+        else
+        {
+            sprite.flipX = false;
+            transform.Rotate(0, 0, -1 * rotateSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isTrap)
+        {
+            if (collision.gameObject.GetComponent<PlayerController>())
+            {
+                //Player knock back
+                Debug.Log("Knock back player");
+                collision.gameObject.GetComponent<ActiveRagDoll>().KnockBack(5000);
+            }
+        }
     }
 }

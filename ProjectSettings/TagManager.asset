@@ -14,6 +14,8 @@ TagManager:
   - MovingObject
   - Player
   - 
+  - Player
+  - BoneCollider
   - 
   - 
   - 

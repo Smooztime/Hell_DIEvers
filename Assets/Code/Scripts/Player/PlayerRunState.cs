@@ -28,13 +28,13 @@ namespace Code.Scripts.Player
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            
-            /*if (!_player.IsGrounded )
+
+            if (!_player.IsGrounded)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;
-            }*/
-            if(_player.RB.velocity.magnitude <= 0.0001f)
+            }
+            if (_player.RB.velocity.magnitude <= 0.0001f)
                 _player.ChangeState(PlayerStates.Idle);
         }
     }

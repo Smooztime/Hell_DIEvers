@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.U2D.IK;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ActiveRagDoll : MonoBehaviour
 {
@@ -11,6 +13,23 @@ public class ActiveRagDoll : MonoBehaviour
     [SerializeField] private HingeJoint2D[] jointHinge;
     [SerializeField] private Rigidbody2D[] jointRB;
     [SerializeField] private Collider2D[] jointCol;
+    
+    private Rigidbody2D rb;
+    private Animator animator;
+    private IKManager2D ikManager;
+    private PlayerInputController input;
+    private WheelJoint2D wheelJoint;
+    private PlayerController controller;
+
+    private void Awake()
+    {
+        controller = GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
+        ikManager = GetComponent<IKManager2D>();
+        input = GetComponent<PlayerInputController>();
+        wheelJoint = GetComponent<WheelJoint2D>();
+        animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +40,21 @@ public class ActiveRagDoll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isRagDoll)
+            wheelJoint.enabled = true;
+        else
+            wheelJoint.enabled = false;
     }
 
     private void RagDollActive()
     {
         if(isRagDoll)
         {
-            transform.GetComponent<Animator>().enabled = false;
-            transform.GetComponent<IKManager2D>().enabled = false;
-            transform.GetComponent<PlayerInputController>().enabled = false;
-            transform.GetComponent<PlayerController>().enabled = false;
-            transform.GetComponent<Rigidbody2D>().simulated = false;
-            transform.GetComponent<Collider2D>().enabled = false;
+            animator.enabled = false;
+            ikManager.enabled = false;
+            input.enabled = false;
+            rb.freezeRotation = false;
+            controller.enabled = false;
 
             foreach(HingeJoint2D hinge in jointHinge)
             {
@@ -53,12 +74,13 @@ public class ActiveRagDoll : MonoBehaviour
         }
         else
         {
-            transform.GetComponent<Animator>().enabled = true;
-            transform.GetComponent<IKManager2D>().enabled = true;
-            transform.GetComponent<PlayerInputController>().enabled = true;
-            transform.GetComponent<PlayerController>().enabled = true;
-            transform.GetComponent<Rigidbody2D>().simulated = true;
-            transform.GetComponent<Collider2D>().enabled = true;
+            animator.enabled = true;
+            ikManager.enabled = true;
+            input.enabled = true;
+            transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
+            transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+            rb.freezeRotation = true;
+            controller.enabled = true;
             foreach (HingeJoint2D hinge in jointHinge)
             {
                 hinge.enabled = false;
@@ -84,4 +106,30 @@ public class ActiveRagDoll : MonoBehaviour
     }
 
     public bool IsRagDoll { get { return isRagDoll; } }
+
+    public void IbelieveICanFly(float value)
+    {
+        isRagDoll = true;
+        RagDollActive();
+        jointRB[0].AddForce(Vector2.up * value);
+    }
+
+    public void KnockBack(float value)
+    {
+        isRagDoll = true;
+        RagDollActive();
+        jointRB[0].AddForce(-Vector2.right * value);
+    }
+
+    public void SetZero()
+    {
+        if (controller.IsGrounded)
+        {
+            foreach (Rigidbody2D rb in jointRB)
+            {
+                rb.velocity = Vector2.zero;
+                rb.simulated = false;
+            }
+        }
+    }
 }

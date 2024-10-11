@@ -1,6 +1,7 @@
 using Code.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WheelRotate : MonoBehaviour
@@ -49,6 +50,7 @@ public class WheelRotate : MonoBehaviour
             {
                 //Player knock back
                 Debug.Log("Knock back player");
+                collision.gameObject.GetComponent<ActiveRagDoll>().KnockBack(5000);
             }
         }
     }

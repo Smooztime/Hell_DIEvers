@@ -4,11 +4,12 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player
 {
-    public enum PlayerStates{Idle, Run/*, Jumping, InAir*/}
+    public enum PlayerStates{Idle, Run/*, Jumping*/, InAir }
   
     public class PlayerInfo
     {
@@ -19,6 +20,7 @@ namespace Code.Scripts.Player
 
     public class PlayerController : BaseStateMachine
     {
+        private string some;
         #region Serialize Fields
         [field: SerializeField] public PlayerData Data { get; private set; }
         [field: SerializeField] public PlayerEventData EventData { get; private set; }
@@ -68,11 +70,12 @@ namespace Code.Scripts.Player
                     break;
                 /*case PlayerStates.Jumping:
                     ChangeState(_jumpingState);
-                    break;
+                    break;*/
                 case PlayerStates.InAir:
                     ChangeState(_inAirState);
-                    break;*/
+                    break;
             }
+            some = newState.ToString();
         }
 
         private void Start()
@@ -82,7 +85,7 @@ namespace Code.Scripts.Player
             _groundCheck = GetComponent<GroundCheck>();
             EventData.HandlePlayerSpawn(this);
             StateSetup();
-            ChangeState(PlayerStates.Idle);
+            ChangeState(PlayerStates.InAir);
             _groundCheck.GroundChanged += (val) =>
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
@@ -140,6 +143,8 @@ namespace Code.Scripts.Player
         {
             base.FixedUpdate();
             this.GetComponent<SpriteRenderer>().flipX = RB.velocity.x < -0.02f;
+            Debug.Log(some);
+          
 
         }
 

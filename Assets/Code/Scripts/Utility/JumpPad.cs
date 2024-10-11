@@ -22,8 +22,10 @@ public class JumpPad : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<PlayerController>())
         {
+            collision.gameObject.GetComponent<ActiveRagDoll>().IbelieveICanFly(iBelieveICanFly);
+            
+
             Debug.Log("Bounce!");
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * iBelieveICanFly);
         }
     }
 }

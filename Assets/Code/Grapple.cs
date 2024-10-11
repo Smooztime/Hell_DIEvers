@@ -17,12 +17,14 @@ public class Grapple : MonoBehaviour
     [SerializeField] float PullInSpeed;
     [SerializeField] Transform hookOrigin;
     [SerializeField] float distanceForBreak;
+    PlayerController playerController;
     public float distanceForMovingObj;
     bool canJump = false;
     bool doRetract = false;
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GetComponent<PlayerController>();
         distanceJoint.enabled = false;
         grappleLine.enabled = false;
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -67,7 +69,7 @@ public class Grapple : MonoBehaviour
    public void ShootHook(Vector2 mousePos)
     {
         Destroy(currentHook);
-        GameObject grappleObject = Instantiate(grapplePrefab, new Vector2(this.transform.position.x,this.transform.position.y + heightOfGrappleFromPlayer),Quaternion.identity);
+        GameObject grappleObject = Instantiate(grapplePrefab, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer),Quaternion.identity);
         Physics2D.IgnoreCollision(grappleObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         AttachToGround attachToGroundScript = grappleObject.GetComponent<AttachToGround>();
         attachToGroundScript.ShootHook(mousePos);
@@ -77,6 +79,7 @@ public class Grapple : MonoBehaviour
     }
     public void AttachedHook(Vector2 grapplePos)
     {
+        playerController.ChangeState(PlayerStates.InAir);
         grappleLine.SetPosition(0, grapplePos);
        
         distanceJoint.connectedAnchor = grapplePos;

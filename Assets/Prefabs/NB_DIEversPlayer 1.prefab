@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: -7013832328315965221}
   - component: {fileID: -3134082091113119327}
   m_Layer: 7
-  m_Name: DIEversPlayer
+  m_Name: NB_DIEversPlayer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

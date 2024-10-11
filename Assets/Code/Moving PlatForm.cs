@@ -42,7 +42,7 @@ public class MovingPlatForm : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector2(startPos.position.y,Mathf.Lerp(leftPos, rightPos, PointOnRange));
+            transform.position = new Vector2(startPos.position.x,Mathf.Lerp(downPos, upPos, PointOnRange));
         }
         
         

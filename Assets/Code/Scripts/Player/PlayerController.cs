@@ -37,9 +37,9 @@ namespace Code.Scripts.Player
         private PlayerBaseState _playerState;
         private PlayerIdleState _idleState;
         private PlayerRunState _runState;
-        private PlayerJumpingState _jumpingState;
+        //private PlayerJumpingState _jumpingState;
         private PlayerInAirState _inAirState;
-        
+        private Grapple _grapple;
 
         #endregion
         
@@ -78,6 +78,7 @@ namespace Code.Scripts.Player
         private void Start()
         {
             RB = GetComponent<Rigidbody2D>();
+            _grapple = GetComponent<Grapple>();
             PlayerAnim = GetComponent<PlayerAnimator>();
             _groundCheck = GetComponent<GroundCheck>();
             EventData.HandlePlayerSpawn(this);
@@ -95,7 +96,7 @@ namespace Code.Scripts.Player
         {
             _idleState = new PlayerIdleState(this);
             _runState = new PlayerRunState(this);
-            _jumpingState = new PlayerJumpingState(this);
+            //_jumpingState = new PlayerJumpingState(this);
             _inAirState = new PlayerInAirState(this);
         }
 
@@ -106,7 +107,31 @@ namespace Code.Scripts.Player
             if (movement.x > 0) movingRight = true;
             if (movement.x < 0) movingRight = false;
         }
+        public void HandleMouseMove(Vector2 mousePosition)
+        {
 
+            
+            var screenPos = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Data.PointingDirection = screenPos ;
+ 
+        }
+        public void HandleGrapple()
+        {
+            _grapple.ShootHook(Data.PointingDirection);
+        }
+        public void CancelGrapple()
+        {
+            _grapple.LetGoOfHook();
+        }
+        public void Retract()
+        {
+            _grapple.PullInToHook();
+        }
+        public void CancelRetract()
+        {
+            _grapple.StopPullInToHook();
+        }
         public void HandleJump()
         {
           //  ((PlayerBaseState)_currentState).HandleJump();

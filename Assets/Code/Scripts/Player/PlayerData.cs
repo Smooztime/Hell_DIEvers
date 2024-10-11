@@ -42,6 +42,7 @@ namespace Code.Scripts.Player
         [HideInInspector]public bool IsJumpHeld { get; set; }
         [HideInInspector] public bool IsJumping { get; set; } = false;
         [HideInInspector]public float MovementDirection { get; set; }
+        [HideInInspector] public Vector2 PointingDirection { get; set; }
         [HideInInspector]public float Acceleration { get; set; }
         [HideInInspector]public Vector2 DesiredVelocity { get; set; }
 

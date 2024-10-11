@@ -16,8 +16,10 @@ public class Grapple : MonoBehaviour
     [SerializeField] float horizontalLetGoForce;
     [SerializeField] float PullInSpeed;
     [SerializeField] Transform hookOrigin;
+    [SerializeField] float distanceForBreak;
     public float distanceForMovingObj;
     bool canJump = false;
+    bool doRetract = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,37 +31,46 @@ public class Grapple : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            ShootHook();
-        }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            LetGoOfHook();
-        }
-        if(Input.GetMouseButton(0) && Input.GetMouseButton(1))
-        {
-         PullInToHook();
-        }
-        if(distanceJoint.distance >= 10)
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    ShootHook();
+        //}
+        //else if(Input.GetMouseButtonUp(0))
+        //{
+        //    LetGoOfHook();
+        //}
+        //if(Input.GetMouseButton(0) && Input.GetMouseButton(1))
+        //{
+        // PullInToHook();
+        //}
+        if(distanceJoint.distance >= distanceForBreak)
         {
             LetGoOfHook();
             distanceJoint.distance = 0;
         }
         grappleLine.SetPosition(1, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer));
+        if (doRetract)
+        {
+            distanceJoint.distance -= PullInSpeed;
+            distanceForMovingObj -= PullInSpeed;
+        }
     }
-    void PullInToHook()
+   public void PullInToHook()
     {
-        distanceJoint.distance -= PullInSpeed;
-        distanceForMovingObj -= PullInSpeed;
+      doRetract = true;
+        transform.parent = null;
     }
-    void ShootHook()
+    public void StopPullInToHook()
+    {
+        doRetract = false;
+    }
+   public void ShootHook(Vector2 mousePos)
     {
         Destroy(currentHook);
         GameObject grappleObject = Instantiate(grapplePrefab, new Vector2(this.transform.position.x,this.transform.position.y + heightOfGrappleFromPlayer),Quaternion.identity);
         Physics2D.IgnoreCollision(grappleObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         AttachToGround attachToGroundScript = grappleObject.GetComponent<AttachToGround>();
-        attachToGroundScript.ShootHook((Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition));
+        attachToGroundScript.ShootHook(mousePos);
         attachToGroundScript.GetComponent<AttachToGround>().playerObject = this.gameObject;
         attachToGroundScript.grappleScript = GetComponent<Grapple>();
         currentHook = grappleObject;
@@ -100,14 +111,14 @@ public class Grapple : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 || collision.gameObject.layer == 6)
         {
             canJump = false;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 || collision.gameObject.layer == 6)
         {
             canJump = true;
         }

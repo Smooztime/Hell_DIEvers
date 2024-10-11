@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7685197637175915449}
   - component: {fileID: 2457682461266539952}
+  - component: {fileID: 7478322530966089178}
   - component: {fileID: 755517842895822580}
   - component: {fileID: 6822321390156938552}
   - component: {fileID: 3514258821330240409}
@@ -55,7 +56,7 @@ GameObject:
   - component: {fileID: -3134082091113119327}
   m_Layer: 0
   m_Name: DIEversPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +131,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7478322530966089178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485155121340783826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558d4d14fb27c49428093ff684feeff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRagDoll: 0
+  jointHinge:
+  - {fileID: 6669277527415108486}
+  - {fileID: 708173906574896702}
+  - {fileID: 2807520541818380275}
+  - {fileID: 2434952949548555384}
+  - {fileID: 7791878359158350014}
+  - {fileID: 7424766895208901130}
+  - {fileID: 3694109776425243407}
+  - {fileID: 8200886242379117081}
+  jointRB:
+  - {fileID: 3123097299206013313}
+  - {fileID: 1008038877849381534}
+  - {fileID: 551058704430291279}
+  - {fileID: 4801304230929392137}
+  - {fileID: 5824380325178611823}
+  - {fileID: 7576695425863870017}
+  - {fileID: 2376971311115194805}
+  - {fileID: 7368808182616590714}
+  - {fileID: 2095520603054060031}
+  jointCol:
+  - {fileID: 3919781839428065621}
+  - {fileID: 5438727020037321861}
+  - {fileID: 1865437950143645321}
+  - {fileID: 2564345755961529183}
+  - {fileID: 1610831696976192928}
+  - {fileID: 6483362045820585525}
+  - {fileID: 8331588595437201}
+  - {fileID: 3774026388967470059}
+  - {fileID: 7068029366607279352}
+  jointPos:
+  - {fileID: 4249792654600477634}
+  - {fileID: 4469401551812677164}
+  - {fileID: 4783252819565118033}
+  - {fileID: 8918786293022828474}
+  - {fileID: 5698414204581140049}
+  - {fileID: 4682492354512788423}
+  - {fileID: 4909653570861985222}
+  - {fileID: 7082204206415002762}
+  - {fileID: 5218769405708402358}
 --- !u!114 &755517842895822580
 MonoBehaviour:
   m_ObjectHideFlags: 0

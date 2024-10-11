@@ -109,6 +109,15 @@ namespace Code.Scripts.Player
 
         public void HandleJump()
         {
+            var ragDoll = gameObject.GetComponent<ActiveRagDoll>();
+            if(ragDoll.IsRagDoll == true)
+            {
+                ragDoll.SetActiveRagDoll(false);
+            }
+            else
+            {
+                ragDoll.SetActiveRagDoll(true);
+            }
           //  ((PlayerBaseState)_currentState).HandleJump();
         }
 

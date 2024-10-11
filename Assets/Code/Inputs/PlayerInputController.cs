@@ -17,7 +17,7 @@ public class PlayerInputController : MonoBehaviour
             _playerInputs = new PlayerInputs();
             _playerInputs.PlayerActions.Movement.performed +=
                 (val) => _playerController.HandleMovement(val.ReadValue<Vector2>());
-          //  _playerInputs.PlayerActions.Jump.performed += (val) => _playerController.HandleJump();
+            _playerInputs.PlayerActions.Jump.performed += (val) => _playerController.HandleJump();
           //  _playerInputs.PlayerActions.Jump.canceled += (val) => _playerController.CancelJump();
 
         }

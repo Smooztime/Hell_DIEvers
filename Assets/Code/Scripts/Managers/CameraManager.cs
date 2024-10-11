@@ -13,7 +13,7 @@ namespace Code.Scripts.Managers
             
             playerEventData.PlayerSpawns.AddListener((player) =>
             {
-                CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera.Follow = player.transform;
+                CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera.Follow = player.transform.GetChild(0).transform;
             });
         }
     }

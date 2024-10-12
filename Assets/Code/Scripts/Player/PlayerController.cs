@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
 using Code.Scripts.StateMachine;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,7 +23,6 @@ namespace Code.Scripts.Player
 
     public class PlayerController : BaseStateMachine
     {
-        private string some;
         #region Serialize Fields
         [field: SerializeField] public PlayerData Data { get; private set; }
         [field: SerializeField] public PlayerEventData EventData { get; private set; }
@@ -34,8 +36,10 @@ namespace Code.Scripts.Player
        
         public bool IsGrounded => _groundCheck.IsGrounded;
         public void DelayGroundCheck ()=> _groundCheck.DelayGrounding();
+
         #endregion
         #region  Player State Info
+        private PlayerStates currentState;
         private PlayerBaseState _playerState;
         private PlayerIdleState _idleState;
         private PlayerRunState _runState;
@@ -47,7 +51,7 @@ namespace Code.Scripts.Player
         
         #region Private Variables
         private GroundCheck _groundCheck;
-
+        private ActiveRagDoll _ragdoll;
         #endregion
 
 
@@ -75,7 +79,7 @@ namespace Code.Scripts.Player
                     ChangeState(_inAirState);
                     break;
             }
-            some = newState.ToString();
+            currentState = newState;
         }
 
         private void Start()
@@ -84,6 +88,7 @@ namespace Code.Scripts.Player
             _grapple = GetComponent<Grapple>();
             PlayerAnim = GetComponent<PlayerAnimator>();
             _groundCheck = GetComponent<GroundCheck>();
+            _ragdoll = GetComponent<ActiveRagDoll>();
             EventData.HandlePlayerSpawn(this);
             StateSetup();
             ChangeState(PlayerStates.InAir);
@@ -91,8 +96,6 @@ namespace Code.Scripts.Player
             {
                 if (!val) Data.TimeEnteredAir = Time.time;
             };
-            
-
         }
 
         private void StateSetup()
@@ -105,10 +108,23 @@ namespace Code.Scripts.Player
 
         public void HandleMovement(Vector2 movement)
         {
-            
             Data.MovementDirection = movement.x;
-            if (movement.x > 0) movingRight = true;
-            if (movement.x < 0) movingRight = false;
+            if (currentState == PlayerStates.Idle && _ragdoll.IsRagDoll == true)
+            {
+                _ragdoll.SetActiveRagDoll(false);
+            }
+
+            if (movement.x > 0)
+            {
+                movingRight = true;
+                if(_ragdoll.IsRagDoll == false) transform.localScale = new Vector3(0.15f, transform.localScale.y, transform.localScale.z);
+            }
+            
+            if (movement.x < 0)
+            {
+                movingRight = false;
+                if (_ragdoll.IsRagDoll == false) transform.localScale = new Vector3(-0.15f, transform.localScale.y, transform.localScale.z);
+            }
         }
         public void HandleMouseMove(Vector2 mousePosition)
         {
@@ -137,7 +153,7 @@ namespace Code.Scripts.Player
         }
         public void HandleJump()
         {
-            var ragDoll = gameObject.GetComponent<ActiveRagDoll>();
+            /*var ragDoll = gameObject.GetComponent<ActiveRagDoll>();
             if(ragDoll.IsRagDoll == true)
             {
                 ragDoll.SetActiveRagDoll(false);
@@ -145,7 +161,7 @@ namespace Code.Scripts.Player
             else
             {
                 ragDoll.SetActiveRagDoll(true);
-            }
+            }*/
           //  ((PlayerBaseState)_currentState).HandleJump();
         }
 
@@ -163,14 +179,12 @@ namespace Code.Scripts.Player
         {
             base.Update();
             EventData.HandlePlayerUpdate(this);
+            Debug.Log(currentState);
         }
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            this.GetComponent<SpriteRenderer>().flipX = RB.velocity.x < -0.02f;
-            Debug.Log(some);
-          
-
+            //this.GetComponent<SpriteRenderer>().flipX = RB.velocity.x < -0.02f;
         }
 
         public void Death()

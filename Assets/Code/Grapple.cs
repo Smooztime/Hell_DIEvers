@@ -59,7 +59,8 @@ public class Grapple : MonoBehaviour
     }
    public void PullInToHook()
     {
-      doRetract = true;
+        playerController.ChangeState(PlayerStates.InAir);
+        doRetract = true;
         transform.parent = null;
     }
     public void StopPullInToHook()
@@ -79,7 +80,7 @@ public class Grapple : MonoBehaviour
     }
     public void AttachedHook(Vector2 grapplePos)
     {
-        playerController.ChangeState(PlayerStates.InAir);
+        //playerController.ChangeState(PlayerStates.InAir);
         grappleLine.SetPosition(0, grapplePos);
        
         distanceJoint.connectedAnchor = grapplePos;

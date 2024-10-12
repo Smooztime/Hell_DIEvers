@@ -20,6 +20,7 @@ public class ActiveRagDoll : MonoBehaviour
     private PlayerInputController input;
     private WheelJoint2D wheelJoint;
     private PlayerController controller;
+    private bool canControl;
 
     private void Awake()
     {
@@ -54,8 +55,7 @@ public class ActiveRagDoll : MonoBehaviour
             ikManager.enabled = false;
             input.enabled = false;
             rb.freezeRotation = false;
-            controller.enabled = false;
-
+            canControl = false;
             foreach(HingeJoint2D hinge in jointHinge)
             {
                 hinge.enabled = true;
@@ -74,13 +74,12 @@ public class ActiveRagDoll : MonoBehaviour
         }
         else
         {
+            //jointRB[0].gameObject.transform.position = Vector2.MoveTowards(jointRB[0].gameObject.transform.position, new Vector2(jointRB[0].gameObject.transform.position.x, -0.1f), 10 * Time.deltaTime);
             animator.enabled = true;
             ikManager.enabled = true;
             input.enabled = true;
-            transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
             transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
             rb.freezeRotation = true;
-            controller.enabled = true;
             foreach (HingeJoint2D hinge in jointHinge)
             {
                 hinge.enabled = false;
@@ -111,14 +110,14 @@ public class ActiveRagDoll : MonoBehaviour
     {
         isRagDoll = true;
         RagDollActive();
-        jointRB[0].AddForce(Vector2.up * value);
+        jointRB[0].AddForce((Vector2.up + ((Vector2.right * controller.Data.MovementDirection) / 5)) * value);
     }
 
     public void KnockBack(float value)
     {
         isRagDoll = true;
         RagDollActive();
-        jointRB[0].AddForce(-Vector2.right * value);
+        jointRB[0].AddForce(Vector2.right * -controller.Data.MovementDirection * value);
     }
 
     public void SetZero()
@@ -130,6 +129,14 @@ public class ActiveRagDoll : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.simulated = false;
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            if(isRagDoll == true)
+                controller.DelayGroundCheck();
         }
     }
 }

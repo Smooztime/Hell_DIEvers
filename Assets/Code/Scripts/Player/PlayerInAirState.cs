@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Code.Scripts.Player
 {
     public class PlayerInAirState : PlayerBaseState
     {
-
         public PlayerInAirState(PlayerController player):base(player)
         {
             
@@ -12,14 +13,16 @@ namespace Code.Scripts.Player
 
         public override void Enter()
         {
-            /*_player.gameObject.GetComponent<ActiveRagDoll>().SetActiveRagDoll(true);
-            Debug.Log("Flying");*/
+            //_player.DelayGroundCheck();
+            _player.gameObject.GetComponent<ActiveRagDoll>().SetActiveRagDoll(true);
+            Debug.Log("Flying");
             /*_player.PlayerAnim.PlayAnimation(PlayerAnimationConstants.AIR);
             _player.EventData.HandlePlayerInAir(_player);*/
         }
 
         public override void Exit()
         {
+            
         }
 
         /*public override void HandleJump()
@@ -52,18 +55,11 @@ namespace Code.Scripts.Player
             base.FixedUpdate(); 
             _player.RB.velocity = new Vector2(_player.RB.velocity.x, Mathf.Clamp(_player.RB.velocity.y, -_player.Data.TerminalVelocity, 100f));
 
-            Debug.Log("in Airrrrrrrrrrrr");
-
-
             if (_player.IsGrounded)
             {
-                Debug.Log("Grounded");
                 _player.ChangeState(PlayerStates.Idle);
-               // _player.ChangeState(Mathf.Abs(_player.Data.MovementDirection) > 0.01f ? PlayerStates.Run : PlayerStates.Idle);
+                //_player.ChangeState(Mathf.Abs(_player.Data.MovementDirection) > 0.01f ? PlayerStates.Run : PlayerStates.Idle);
             }
-
-
-
         }
     }
 }

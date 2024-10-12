@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4385116707811063449}
   - component: {fileID: 7265416349843060870}
   - component: {fileID: 2255117624638408857}
-  - component: {fileID: 645061910601783863}
+  - component: {fileID: 8054538969617503122}
   m_Layer: 0
   m_Name: JumpPad
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc809c0d31162ca468e08323cd019e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbForce: 20
---- !u!60 &645061910601783863
+  iBelieveICanFly: 0
+--- !u!60 &8054538969617503122
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

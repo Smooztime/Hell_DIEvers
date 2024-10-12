@@ -10,6 +10,7 @@ namespace Code.Scripts.Player
         {
             _player.Data.IsJumping = false;
             _player.PlayerAnim.PlayAnimation(PlayerAnimationConstants.RUN);
+            _player.GetComponent<ActiveRagDoll>().SetActiveRagDoll(false);
             /*if (_player.Data.JumpBuffered)
             {
                 base.HandleJump();

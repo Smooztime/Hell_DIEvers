@@ -435,9 +435,9 @@ MonoBehaviour:
   heightOfGrappleFromPlayer: 0
   LetGoForce: 600
   horizontalLetGoForce: 200
-  PullInSpeed: 0.2
+  PullInSpeed: 0.05
   hookOrigin: {fileID: 296950905874252385}
-  distanceForBreak: 6
+  distanceForBreak: 10
   distanceForMovingObj: 0
 --- !u!120 &-3134082091113119327
 LineRenderer:

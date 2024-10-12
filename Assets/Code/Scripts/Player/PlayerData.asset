@@ -19,14 +19,14 @@ MonoBehaviour:
   <JumpHeight>k__BackingField: 3
   <TimeToApex>k__BackingField: 0.5
   <UpMovementMultiplier>k__BackingField: 1
-  <DownMovementMultiplier>k__BackingField: 4.98
+  <DownMovementMultiplier>k__BackingField: 4.16
   <GravityJumpCutOff>k__BackingField: 5
-  <DefaultGravityScale>k__BackingField: 2
+  <DefaultGravityScale>k__BackingField: 1
   <VariableJumpHeight>k__BackingField: 1
   <JumpBufferTime>k__BackingField: 0.3
   <CoyoteTime>k__BackingField: 0.2
   <PlayerDeathDelay>k__BackingField: 0
   <TerminalVelocity>k__BackingField: 20.8
-  <AirMaxAcceleration>k__BackingField: 3.1
-  <AirMaxDeceleration>k__BackingField: 31.5
+  <AirMaxAcceleration>k__BackingField: 10
+  <AirMaxDeceleration>k__BackingField: 100
   <AirMaxTurnSpeed>k__BackingField: 24.4

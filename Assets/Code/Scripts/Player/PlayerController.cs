@@ -117,13 +117,15 @@ namespace Code.Scripts.Player
             if (movement.x > 0)
             {
                 movingRight = true;
-                if(_ragdoll.IsRagDoll == false) transform.localScale = new Vector3(0.15f, transform.localScale.y, transform.localScale.z);
+                if(_ragdoll.IsRagDoll == false) 
+                    transform.localScale = new Vector3(0.15f, transform.localScale.y, transform.localScale.z);
             }
             
             if (movement.x < 0)
             {
                 movingRight = false;
-                if (_ragdoll.IsRagDoll == false) transform.localScale = new Vector3(-0.15f, transform.localScale.y, transform.localScale.z);
+                if (_ragdoll.IsRagDoll == false) 
+                    transform.localScale = new Vector3(-0.15f, transform.localScale.y, transform.localScale.z);
             }
         }
         public void HandleMouseMove(Vector2 mousePosition)

@@ -101,6 +101,10 @@ public class ActiveRagDoll : MonoBehaviour
     public void SetActiveRagDoll(bool value)
     {
         isRagDoll = value;
+        foreach(Rigidbody2D rb in jointRB)
+        {
+            rb.velocity = controller.RB.velocity;
+        }
         RagDollActive();
     }
 

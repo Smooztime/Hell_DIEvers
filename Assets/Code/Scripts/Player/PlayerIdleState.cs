@@ -30,7 +30,7 @@ namespace Code.Scripts.Player
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (!_player.IsGrounded)
+            if (_player.RB.velocity.y < -15f)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;

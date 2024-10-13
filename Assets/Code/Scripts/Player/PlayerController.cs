@@ -181,7 +181,7 @@ namespace Code.Scripts.Player
         {
             base.Update();
             EventData.HandlePlayerUpdate(this);
-            Debug.Log(currentState);
+            Debug.Log(RB.velocity.y);
         }
         protected override void FixedUpdate()
         {

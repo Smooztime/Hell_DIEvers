@@ -133,7 +133,6 @@ namespace Code.Scripts.Player
 
             
             var screenPos = Camera.main.ScreenToWorldPoint(mousePosition);
-
             Data.PointingDirection = screenPos ;
  
         }

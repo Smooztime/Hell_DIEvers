@@ -21,6 +21,7 @@ public class Grapple : MonoBehaviour
     public float distanceForMovingObj;
     bool canJump = false;
     bool doRetract = false;
+    ControlArm armScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Grapple : MonoBehaviour
         distanceJoint.enabled = false;
         grappleLine.enabled = false;
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        armScript = GetComponent<ControlArm>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,8 @@ public class Grapple : MonoBehaviour
             distanceJoint.distance -= PullInSpeed;
             distanceForMovingObj -= PullInSpeed;
         }
+        TellControlArm(playerController.Data.PointingDirection);
+        
     }
    public void PullInToHook()
     {
@@ -112,6 +116,10 @@ public class Grapple : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(hlgf, LetGoForce));
         }
 
+    }
+    public void TellControlArm(Vector2 pos)
+    {
+        armScript.SetTargetToPoint(pos);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

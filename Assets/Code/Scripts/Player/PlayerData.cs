@@ -34,13 +34,14 @@ namespace Code.Scripts.Player
         public float PlayerDeathDelay { get; private set; } = .1f;
 
         [field: SerializeField, Range(5.0f, 50f)] public float TerminalVelocity { get; private set; } = 20f;
-        [field: SerializeField, Range(0f, 10f), Header("In Air Movement")] public float AirMaxAcceleration { get; private set; } = 50f;
+        [field: SerializeField, Range(0f, 50f), Header("In Air Movement")] public float AirMaxAcceleration { get; private set; } = 50f;
         [field: SerializeField, Range(0f, 100)] public float AirMaxDeceleration { get; private set; } = 50f;
         [field: SerializeField, Range(0f, 100f)] public float AirMaxTurnSpeed { get; private set; } = 80f;
        
         [HideInInspector]public bool IsGrounded { get; set; }
         [HideInInspector]public bool IsJumpHeld { get; set; }
         [HideInInspector] public bool IsJumping { get; set; } = false;
+        [HideInInspector] public bool IsInAir { get; set; } = false;
         [HideInInspector]public float MovementDirection { get; set; }
         [HideInInspector] public Vector2 PointingDirection { get; set; }
         [HideInInspector]public float Acceleration { get; set; }

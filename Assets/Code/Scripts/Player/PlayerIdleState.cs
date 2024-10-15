@@ -30,14 +30,17 @@ namespace Code.Scripts.Player
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (_player.RB.velocity.y < -15f)
+            if (_player.RB.velocity.y < - 15f || _player.GetComponent<ActiveRagDoll>().IsRagDoll == true && !_player.IsGrounded)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;
             }
-            if (MathF.Abs(_player.Data.MovementDirection) > 0)
+            if(_player.Data.IsInAir)
             {
-                _player.ChangeState(PlayerStates.Run);
+                if (MathF.Abs(_player.Data.MovementDirection) > 0)
+                {
+                    _player.ChangeState(PlayerStates.Run);
+                }
             }
             
         }

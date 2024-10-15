@@ -180,7 +180,7 @@ namespace Code.Scripts.Player
         {
             base.Update();
             EventData.HandlePlayerUpdate(this);
-            Debug.Log(RB.velocity.y);
+            Debug.Log(currentState);
         }
         protected override void FixedUpdate()
         {

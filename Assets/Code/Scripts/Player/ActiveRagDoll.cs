@@ -13,12 +13,13 @@ public class ActiveRagDoll : MonoBehaviour
     [SerializeField] private HingeJoint2D[] jointHinge;
     [SerializeField] private Rigidbody2D[] jointRB;
     [SerializeField] private Collider2D[] jointCol;
+    [SerializeField] private WheelJoint2D wheelJoint;
     
     private Rigidbody2D rb;
     private Animator animator;
     private IKManager2D ikManager;
     private PlayerInputController input;
-    private WheelJoint2D wheelJoint;
+    //private WheelJoint2D wheelJoint;
     private PlayerController controller;
     private bool canControl;
 
@@ -28,7 +29,6 @@ public class ActiveRagDoll : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ikManager = GetComponent<IKManager2D>();
         input = GetComponent<PlayerInputController>();
-        wheelJoint = GetComponent<WheelJoint2D>();
         animator = GetComponent<Animator>();
     }
 

@@ -30,13 +30,17 @@ namespace Code.Scripts.Player
         {
             base.FixedUpdate();
 
-            if (_player.RB.velocity.y < -15f)
+            if (_player.RB.velocity.y < -15f || _player.GetComponent<ActiveRagDoll>().IsRagDoll == true && !_player.IsGrounded)
             {
                 _player.ChangeState(PlayerStates.InAir);
                 return;
             }
-            if (_player.RB.velocity.magnitude <= 0.0001f)
-                _player.ChangeState(PlayerStates.Idle);
+            if(_player.Data.IsInAir)
+            {
+                if (_player.RB.velocity.magnitude <= 0.0001f)
+                    _player.ChangeState(PlayerStates.Idle);
+            }
+            
         }
     }
 }

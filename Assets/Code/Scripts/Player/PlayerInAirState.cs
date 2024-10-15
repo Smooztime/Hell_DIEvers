@@ -13,6 +13,7 @@ namespace Code.Scripts.Player
 
         public override void Enter()
         {
+            _player.Data.IsInAir = true;
             //_player.DelayGroundCheck();
             _player.gameObject.GetComponent<ActiveRagDoll>().SetActiveRagDoll(true);
             Debug.Log("Flying");

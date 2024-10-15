@@ -27,6 +27,6 @@ MonoBehaviour:
   <CoyoteTime>k__BackingField: 0.2
   <PlayerDeathDelay>k__BackingField: 0
   <TerminalVelocity>k__BackingField: 20.8
-  <AirMaxAcceleration>k__BackingField: 10
+  <AirMaxAcceleration>k__BackingField: 50
   <AirMaxDeceleration>k__BackingField: 100
   <AirMaxTurnSpeed>k__BackingField: 24.4

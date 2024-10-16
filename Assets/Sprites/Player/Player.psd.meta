@@ -1661,7 +1661,7 @@ TextureImporter:
       Player_2: 348091287
       Player_3: 1507201047
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

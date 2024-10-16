@@ -75,6 +75,7 @@ public class Grapple : MonoBehaviour
     {
         Destroy(currentHook);
         GameObject grappleObject = Instantiate(grapplePrefab, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer),Quaternion.identity);
+        armScript.pointToMouse = false;
         Physics2D.IgnoreCollision(grappleObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         AttachToGround attachToGroundScript = grappleObject.GetComponent<AttachToGround>();
         attachToGroundScript.ShootHook(mousePos);
@@ -86,7 +87,7 @@ public class Grapple : MonoBehaviour
     {
         //playerController.ChangeState(PlayerStates.InAir);
         grappleLine.SetPosition(0, grapplePos);
-       
+       armScript.SetTargetToGrapple(grapplePos);
         distanceJoint.connectedAnchor = grapplePos;
         distanceJoint.enabled = true;
         grappleLine.enabled = true;
@@ -94,11 +95,13 @@ public class Grapple : MonoBehaviour
     public void AttachedHookToMovingObject(Vector2 grapplePos)
     {
         grappleLine.SetPosition(0, grapplePos);
+        armScript.SetTargetToGrapple(grapplePos);
         distanceJoint.connectedAnchor = grapplePos;
         distanceJoint.distance = distanceForMovingObj;
     }
     public void LetGoOfHook()
     {
+        armScript.pointToMouse = true;
         Destroy(currentHook);
         distanceJoint.enabled = false;
         grappleLine.enabled = false;

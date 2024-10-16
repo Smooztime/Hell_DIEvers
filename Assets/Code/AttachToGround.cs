@@ -52,7 +52,6 @@ public class AttachToGround : MonoBehaviour
             movingObject = collision.gameObject;
             grappleScript.AttachedHook((Vector2)transform.position);
             grappleScript.distanceForMovingObj = ((Vector2)transform.position - (Vector2)playerObject.transform.position).magnitude;
-            Debug.Log(grappleScript.distanceForMovingObj);
         }
     }
 }

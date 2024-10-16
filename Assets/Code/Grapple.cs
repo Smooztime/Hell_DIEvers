@@ -17,6 +17,7 @@ public class Grapple : MonoBehaviour
     [SerializeField] float PullInSpeed;
     [SerializeField] Transform hookOrigin;
     [SerializeField] float distanceForBreak;
+    [SerializeField] GameObject handOfPlayer;
     PlayerController playerController;
     public float distanceForMovingObj;
     bool canJump = false;
@@ -31,7 +32,15 @@ public class Grapple : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         armScript = GetComponent<ControlArm>();
     }
-
+    public void ChangeArmPos(Vector2 pos)
+    {
+        armScript.SetTargetToGrapple(pos);
+        grappleLine.SetPosition(0, pos);
+        if(((Vector2)transform.position - pos).magnitude > distanceForBreak)
+        {
+            LetGoOfHook();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -74,7 +83,10 @@ public class Grapple : MonoBehaviour
    public void ShootHook(Vector2 mousePos)
     {
         Destroy(currentHook);
+        grappleLine.enabled = true;
+        handOfPlayer.SetActive(false);
         GameObject grappleObject = Instantiate(grapplePrefab, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer),Quaternion.identity);
+        grappleObject.transform.eulerAngles = new Vector3(0,0,-180);
         armScript.pointToMouse = false;
         Physics2D.IgnoreCollision(grappleObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         AttachToGround attachToGroundScript = grappleObject.GetComponent<AttachToGround>();
@@ -90,7 +102,7 @@ public class Grapple : MonoBehaviour
        armScript.SetTargetToGrapple(grapplePos);
         distanceJoint.connectedAnchor = grapplePos;
         distanceJoint.enabled = true;
-        grappleLine.enabled = true;
+       
     }
     public void AttachedHookToMovingObject(Vector2 grapplePos)
     {
@@ -101,6 +113,7 @@ public class Grapple : MonoBehaviour
     }
     public void LetGoOfHook()
     {
+        handOfPlayer.SetActive(true);
         armScript.pointToMouse = true;
         Destroy(currentHook);
         distanceJoint.enabled = false;

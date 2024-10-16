@@ -12,6 +12,7 @@ public class AttachToGround : MonoBehaviour
     bool doMoveHook = false;
     bool attachedToMovingObject = false;
     GameObject movingObject;
+    [SerializeField] Sprite ClosedHand;
     Vector2 grappleTowards;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class AttachToGround : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        grappleScript.ChangeArmPos(transform.position);
         if (attachedToMovingObject)
         {
             transform.position = movingObject.transform.position;
@@ -41,6 +43,7 @@ public class AttachToGround : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
+            GetComponent<SpriteRenderer>().sprite = ClosedHand;
             grappleRigidbody.isKinematic = true;
             grappleRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             doMoveHook = false;
@@ -48,6 +51,7 @@ public class AttachToGround : MonoBehaviour
         }
         if(collision.gameObject.layer == 6)
         {
+            GetComponent<SpriteRenderer>().sprite = ClosedHand;
             attachedToMovingObject = true;
             movingObject = collision.gameObject;
             grappleScript.AttachedHook((Vector2)transform.position);

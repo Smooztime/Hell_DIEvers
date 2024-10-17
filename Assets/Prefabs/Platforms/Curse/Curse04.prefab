@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1469790548014515113}
   - component: {fileID: 4083548502860205787}
   - component: {fileID: 7612792471747045501}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Curse04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

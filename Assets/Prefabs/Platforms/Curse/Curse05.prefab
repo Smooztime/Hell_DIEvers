@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6623754744547630222}
   - component: {fileID: 7005757792705460762}
   - component: {fileID: 1232069140663397210}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Curse05
   m_TagString: Untagged
   m_Icon: {fileID: 0}

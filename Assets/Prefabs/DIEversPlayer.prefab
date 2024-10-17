@@ -374,8 +374,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08, y: 0.4250736}
-  m_Size: {x: 4.130712, y: 10.6}
+  m_Offset: {x: -0.07999996, y: 0.53990996}
+  m_Size: {x: 4.130712, y: 10.370337}
   m_Direction: 0
 --- !u!232 &2778415922786661063
 DistanceJoint2D:
@@ -392,10 +392,10 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.21, y: 1.88}
-  m_ConnectedAnchor: {x: -0.032, y: 0.282}
+  m_Anchor: {x: -0.21, y: 6.4}
+  m_ConnectedAnchor: {x: -0.032, y: 0.85}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.005
+  m_Distance: 0.11000115
   m_MaxDistanceOnly: 0
 --- !u!114 &2835307858338610450
 MonoBehaviour:
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckDistance: 0.1
-  _groundCheckDelay: 3
-  _colliderOffset: {x: 0, y: -0.74, z: 0}
+  _groundCheckDelay: 0.75
+  _colliderOffset: {x: 0, y: -0.63, z: 0}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -714,9 +714,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &2564345755961529183
 CapsuleCollider2D:
@@ -838,9 +838,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &3919781839428065621
 CapsuleCollider2D:
@@ -962,9 +962,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &5438727020037321861
 CapsuleCollider2D:
@@ -1085,9 +1085,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1610831696976192928
 CapsuleCollider2D:
@@ -1206,9 +1206,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &6483362045820585525
 CapsuleCollider2D:
@@ -1327,9 +1327,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &7068029366607279352
 CapsuleCollider2D:
@@ -1514,9 +1514,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &8331588595437201
 CapsuleCollider2D:
@@ -1637,9 +1637,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &3774026388967470059
 CapsuleCollider2D:
@@ -1758,9 +1758,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1865437950143645321
 CapsuleCollider2D:

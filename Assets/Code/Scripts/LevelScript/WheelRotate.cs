@@ -9,7 +9,7 @@ public class WheelRotate : MonoBehaviour
     [SerializeField] private bool isTrap;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private bool reverse;
-    
+    [SerializeField] private float knockBack = 5000;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +50,12 @@ public class WheelRotate : MonoBehaviour
             {
                 //Player knock back
                 Debug.Log("Knock back player");
-                collision.gameObject.GetComponent<ActiveRagDoll>().KnockBack(5000);
+                collision.gameObject.GetComponent<ActiveRagDoll>().KnockBack(knockBack,transform.position);
+            }
+            if(collision.gameObject.transform.root.gameObject.GetComponent<PlayerController>())
+            {
+                Debug.Log("Help");
+                collision.gameObject.transform.root.gameObject.GetComponent<ActiveRagDoll>().KnockBack(knockBack,transform.position, true);
             }
         }
     }

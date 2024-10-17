@@ -35,11 +35,11 @@ namespace Code.Scripts.Player
                 _player.ChangeState(PlayerStates.InAir);
                 return;
             }
-            if(_player.Data.IsInAir)
-            {
-                if (_player.RB.velocity.magnitude <= 0.0001f)
-                    _player.ChangeState(PlayerStates.Idle);
-            }
+            //if(_player.Data.IsInAir)
+            //{
+            //    if (_player.RB.velocity.magnitude <= 0.0001f)
+            //        _player.ChangeState(PlayerStates.Idle);
+            //}
             
         }
     }

@@ -59,12 +59,12 @@ namespace Code.Scripts.Player
             
             _player.RB.velocity = new Vector2(_player.RB.velocity.x,
                 _player.RB.velocity.y);
-            if (_player.IsGrounded)
-            {
-                _player.ChangeState(Mathf.Abs(_player.Data.MovementDirection) > 0.01f
-                    ? PlayerStates.Run
-                    : PlayerStates.Idle);
-            }
+            //if (_player.IsGrounded)
+            //{
+            //    _player.ChangeState(Mathf.Abs(_player.Data.MovementDirection) > 0.01f
+            //        ? PlayerStates.Run
+            //        : PlayerStates.Idle);
+            //}
         }
     }
 }

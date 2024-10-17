@@ -22,6 +22,7 @@ public class Grapple : MonoBehaviour
     public float distanceForMovingObj;
     bool canJump = false;
     bool doRetract = false;
+    bool isGrappled = false;
     ControlArm armScript;
     // Start is called before the first frame update
     void Start()
@@ -97,6 +98,7 @@ public class Grapple : MonoBehaviour
     }
     public void AttachedHook(Vector2 grapplePos)
     {
+        isGrappled = true;
         //playerController.ChangeState(PlayerStates.InAir);
         grappleLine.SetPosition(0, grapplePos);
        armScript.SetTargetToGrapple(grapplePos);
@@ -106,6 +108,7 @@ public class Grapple : MonoBehaviour
     }
     public void AttachedHookToMovingObject(Vector2 grapplePos)
     {
+        isGrappled = true;
         grappleLine.SetPosition(0, grapplePos);
         armScript.SetTargetToGrapple(grapplePos);
         distanceJoint.connectedAnchor = grapplePos;
@@ -127,11 +130,11 @@ public class Grapple : MonoBehaviour
         {
             hlgf = -horizontalLetGoForce;
         }
-        if(canJump)
+        if(canJump && isGrappled)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(hlgf, LetGoForce));
         }
-
+        isGrappled = false;
     }
     public void TellControlArm(Vector2 pos)
     {

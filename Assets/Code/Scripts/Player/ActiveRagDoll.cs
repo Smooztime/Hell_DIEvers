@@ -117,11 +117,15 @@ public class ActiveRagDoll : MonoBehaviour
         jointRB[0].AddForce((Vector2.up + ((Vector2.right * controller.Data.MovementDirection) / 5)) * value);
     }
 
-    public void KnockBack(float value)
+    public void KnockBack(float value, Vector2 pos, bool applyToAll = false)
     {
+        if(!IsRagDoll)
+        {
+            RagDollActive();
+        }
         isRagDoll = true;
-        RagDollActive();
-        jointRB[0].AddForce(Vector2.right * -controller.Data.MovementDirection * value);
+            jointRB[0].AddForce((pos-(Vector2)controller.RB.position).normalized * -value);
+        GetComponent<Grapple>().LetGoOfHook();
     }
 
     public void SetZero()

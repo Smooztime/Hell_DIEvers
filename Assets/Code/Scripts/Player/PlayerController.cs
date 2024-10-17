@@ -12,7 +12,7 @@ using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player
 {
-    public enum PlayerStates{Idle, Run/*, Jumping*/, InAir }
+    public enum PlayerStates{/*Idle, Run, Jumping*/InAir }
   
     public class PlayerInfo
     {
@@ -66,12 +66,12 @@ namespace Code.Scripts.Player
         {
             switch (newState)
             {
-                case PlayerStates.Idle:
-                    ChangeState(_idleState);
-                    break;
-                case PlayerStates.Run:
-                    ChangeState(_runState);
-                    break;
+                //case PlayerStates.Idle:
+                //    ChangeState(_idleState);
+                //    break;
+                //case PlayerStates.Run:
+                //    ChangeState(_runState);
+                //    break;
                 /*case PlayerStates.Jumping:
                     ChangeState(_jumpingState);
                     break;*/
@@ -109,10 +109,6 @@ namespace Code.Scripts.Player
         public void HandleMovement(Vector2 movement)
         {
             Data.MovementDirection = movement.x;
-            if (currentState == PlayerStates.Idle && _ragdoll.IsRagDoll == true)
-            {
-                _ragdoll.SetActiveRagDoll(false);
-            }
 
             if (movement.x > 0)
             {
@@ -174,7 +170,7 @@ namespace Code.Scripts.Player
 
         public void HandleRun(bool isRunning)
         {
-            IsRunning = isRunning;
+          //  IsRunning = isRunning;
         }
         protected override void Update()
         {

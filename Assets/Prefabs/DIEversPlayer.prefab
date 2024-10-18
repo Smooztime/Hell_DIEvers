@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8365925467014276024}
   - component: {fileID: 1371270713166493470}
   - component: {fileID: -3134082091113119327}
-  - component: {fileID: 626353794519363488}
+  - component: {fileID: 6793907619050366914}
   m_Layer: 7
   m_Name: DIEversPlayer
   m_TagString: Player
@@ -394,9 +394,9 @@ DistanceJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: -0.21, y: 6.4}
-  m_ConnectedAnchor: {x: -0.032, y: 0.85}
+  m_ConnectedAnchor: {x: -0.035, y: 0.84}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.11000115
+  m_Distance: 0.12005109
   m_MaxDistanceOnly: 0
 --- !u!114 &2835307858338610450
 MonoBehaviour:
@@ -564,8 +564,8 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!233 &626353794519363488
-HingeJoint2D:
+--- !u!235 &6793907619050366914
+WheelJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -574,21 +574,21 @@ HingeJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 3123097299206013313}
+  m_ConnectedRigidBody: {fileID: 1008038877849381534}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.31, y: -0.97}
-  m_ConnectedAnchor: {x: 0.032258034, y: -0.005257188}
+  m_Anchor: {x: -0.31, y: 0.43}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_Suspension:
+    m_DampingRatio: 0.7
+    m_Frequency: 2
+    m_Angle: 90
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
-  m_AngleLimits:
-    m_LowerAngle: -20
-    m_UpperAngle: 20
 --- !u!1 &1431879655242068536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ WheelJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4046326808035809863}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 511918305925916220}

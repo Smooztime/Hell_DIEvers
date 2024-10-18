@@ -3,11 +3,9 @@ using System.Collections;
 using Code.Scripts.StateMachine;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using State = Code.Scripts.StateMachine.State;
 
 namespace Code.Scripts.Player

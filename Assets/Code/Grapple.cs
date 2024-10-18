@@ -42,6 +42,10 @@ public class Grapple : MonoBehaviour
             LetGoOfHook();
         }
     }
+    private void Update()
+    {
+        grappleLine.SetPosition(1, new Vector2(hookOrigin.position.x, hookOrigin.position.y + heightOfGrappleFromPlayer));
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -62,7 +66,7 @@ public class Grapple : MonoBehaviour
             LetGoOfHook();
             distanceJoint.distance = 0;
         }
-        grappleLine.SetPosition(1, new Vector2(hookOrigin.position.x,hookOrigin.position.y + heightOfGrappleFromPlayer));
+       
         if (doRetract)
         {
             distanceJoint.distance -= PullInSpeed;
@@ -71,6 +75,7 @@ public class Grapple : MonoBehaviour
         TellControlArm(playerController.Data.PointingDirection);
         
     }
+
    public void PullInToHook()
     {
         playerController.ChangeState(PlayerStates.InAir);

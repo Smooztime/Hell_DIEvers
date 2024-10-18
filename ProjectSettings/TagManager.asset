@@ -14,7 +14,7 @@ TagManager:
   - MovingObject
   - Player
   - BoneCollider
-  - 
+  - Grapple
   - 
   - 
   - 

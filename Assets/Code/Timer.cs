@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text secondsText;
+    public bool timerRunning = true;
     float seconds;
     int minutes;
     int hours;
@@ -22,7 +23,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        seconds += Time.deltaTime;
+        if (timerRunning)
+        {
+            seconds += Time.deltaTime;
+        }
+
         if(seconds >= 60)
         {
             seconds = 0;

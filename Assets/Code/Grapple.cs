@@ -88,6 +88,7 @@ public class Grapple : MonoBehaviour
     }
    public void ShootHook(Vector2 mousePos)
     {
+        SoundManager.PlaySound(SoundType.GrapplingHook);
         Destroy(currentHook);
         grappleLine.enabled = true;
         handOfPlayer.SetActive(false);
@@ -103,6 +104,7 @@ public class Grapple : MonoBehaviour
     }
     public void AttachedHook(Vector2 grapplePos)
     {
+        SoundManager.PlaySound(SoundType.HookAttach);
         isGrappled = true;
         //playerController.ChangeState(PlayerStates.InAir);
         grappleLine.SetPosition(0, grapplePos);

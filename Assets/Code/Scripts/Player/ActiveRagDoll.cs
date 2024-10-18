@@ -143,6 +143,7 @@ public class ActiveRagDoll : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            SoundManager.PlaySound(SoundType.OnGround, 0.2f);
             if(isRagDoll == true)
                 controller.DelayGroundCheck();
         }

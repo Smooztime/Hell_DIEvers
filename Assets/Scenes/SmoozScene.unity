@@ -1740,6 +1740,60 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &891347244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891347245}
+  - component: {fileID: 891347246}
+  m_Layer: 0
+  m_Name: '[SoundManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &891347245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891347244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1815139077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &891347246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891347244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347658da2ac2cf746b302f616e8979c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundList:
+  - {fileID: 8300000, guid: 2c54c97e391fc0d49b2010d35b8506ad, type: 3}
+  - {fileID: 8300000, guid: 6fb80ccffaf2d35458ee4b1be2a52f28, type: 3}
+  - {fileID: 8300000, guid: d8d9f85260c019548984c8c4b25060ed, type: 3}
+  - {fileID: 8300000, guid: 3099e8b6245e0d74ca032e7a1f06442d, type: 3}
+  - {fileID: 8300000, guid: f6e5afe0ee5a8ee4982dea928e6b2083, type: 3}
+  - {fileID: 8300000, guid: f6633ea5c8c9c974fb1f7cc23a942495, type: 3}
+  - {fileID: 8300000, guid: 380c8b6642152b747bde6713f70ce84c, type: 3}
+  - {fileID: 8300000, guid: bb97e5625073a894d815c1e5bf2c7483, type: 3}
+  - {fileID: 8300000, guid: 6edbdcf15fd22d34e8b98ecb9b7ab0c3, type: 3}
 --- !u!1001 &1052360845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2323,7 +2377,8 @@ Transform:
   m_LocalPosition: {x: 1.6769989, y: 2.5508833, z: 0.0060409983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 891347245}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1815139078

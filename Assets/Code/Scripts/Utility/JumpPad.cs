@@ -22,6 +22,7 @@ public class JumpPad : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<PlayerController>())
         {
+            SoundManager.PlaySound(SoundType.JumpPad, 0.1f);
             collision.gameObject.GetComponent<ActiveRagDoll>().IbelieveICanFly(iBelieveICanFly);
             
 

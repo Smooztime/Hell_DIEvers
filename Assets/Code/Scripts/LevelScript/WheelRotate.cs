@@ -10,6 +10,7 @@ public class WheelRotate : MonoBehaviour
     [SerializeField] private float rotateSpeed;
     [SerializeField] private bool reverse;
     [SerializeField] private float knockBack = 5000;
+    [SerializeField] private AudioClip Sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,7 @@ public class WheelRotate : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerController>())
             {
                 //Player knock back
+                SoundManager.PlaySound(SoundType.KnockBack);
                 Debug.Log("Knock back player");
                 collision.gameObject.GetComponent<ActiveRagDoll>().KnockBack(knockBack,transform.position);
             }

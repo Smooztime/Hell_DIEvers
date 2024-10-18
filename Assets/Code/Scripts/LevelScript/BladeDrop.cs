@@ -26,6 +26,7 @@ public class BladeDrop : MonoBehaviour
     {
         if (doFall) 
         {
+            SoundManager.PlaySound(SoundType.BladeDrop);
             joint.enabled = false;
         }
     }

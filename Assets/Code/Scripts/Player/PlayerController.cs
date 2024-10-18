@@ -75,6 +75,12 @@ namespace Code.Scripts.Player
             }
         }
 
+        AudioManager audioManager;
+
+        private void Awake()
+        {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
         private void Start()
         {
             RB = GetComponent<Rigidbody2D>();
